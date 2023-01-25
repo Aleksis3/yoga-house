@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, createMuiTheme, createTheme } from "@mui/material";
+import "./App.css";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+
+const theme = createTheme({
+  typography: {
+    // Tell MUI what's the font-size on the html element is.
+    htmlFontSize: "62.5%",
+    "@media (max-width:700px)": {
+      htmlFontSize: "40%",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" theme={theme}>
+      <Header />
+      <Hero />
     </div>
   );
 }
