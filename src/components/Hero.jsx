@@ -13,7 +13,7 @@ const StyledBox = styled(
     content: '""',
     display: "block",
     position: "absolute",
-    height: "56rem",
+    height: "100vh",
     width: "100%",
     boxShadow: "0px 0px 60px 10px #232321 inset",
   },
@@ -31,10 +31,12 @@ function Hero() {
         <StyledBox>
           <CardMedia
             sx={{
-              height: "56rem",
+              // height: "56rem",
+              height: "100vh",
               width: "100%",
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(${background})`,
-              backgroundPosition: "50% 37%",
+              backgroundPosition: "20% 37%",
+              // objectFit: "cover",
             }}
             alt=""
           />
@@ -56,10 +58,8 @@ function Hero() {
               textAlign: "center",
               display: "block",
               fontWeight: "bold",
-
               letterSpacing: "0.1rem",
               marginLeft: "2.7rem",
-
               textShadow:
                 "0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black",
             }}
@@ -76,8 +76,12 @@ function Hero() {
             style={{ alignSelf: "center" }}
             m="1.35rem 0 0 20rem"
           >
-            made to cater for all of your yogistic needs - no matter of the
-            level
+            made to cater for
+            <Typography component={"span"} fontSize="1.5rem" color="secondary">
+              {" "}
+              all{" "}
+            </Typography>
+            of your yogistic needs - no matter of the level
           </Typography>
           <Box
             sx={{

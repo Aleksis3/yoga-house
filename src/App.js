@@ -1,11 +1,21 @@
-import { Button, createMuiTheme, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
+import { Container } from "@mui/system";
 import "./App.css";
+import Classes from "./components/Classes/Classes";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Reserve from "./components/Reserve/Reserve";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2f2",
+    },
+    secondary: {
+      main: "#f44336",
+    },
+  },
   typography: {
-    // Tell MUI what's the font-size on the html element is.
     htmlFontSize: "62.5%",
     "@media (max-width:700px)": {
       htmlFontSize: "40%",
@@ -18,6 +28,10 @@ function App() {
     <div className="App" theme={theme}>
       <Header />
       <Hero />
+      <Container maxWidth="xl">
+        <Classes />
+        <Reserve />
+      </Container>
     </div>
   );
 }
