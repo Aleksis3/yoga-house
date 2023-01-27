@@ -1,4 +1,11 @@
-import { CardMedia, Grid, Paper, Typography } from "@mui/material";
+import {
+  CardMedia,
+  Collapse,
+  Grid,
+  Grow,
+  Paper,
+  Typography,
+} from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { useInViewport } from "react-in-viewport";
@@ -23,11 +30,11 @@ function Class(props) {
 
   return (
     <Grid item sm={12} md={4} sx={{ maxWidth: "400px" }} ref={myRef}>
-      <ReactCardFlip isFlipped={isFlipped} flipSpeedBackToFront={1}>
-        <Paper key="back" sx={{ height: 350 }}></Paper>
-        <Paper key="front" sx={{ height: 350 }}>
+      <Grow in={isFlipped} {...(isFlipped ? { timeout: 5000 } : {})}>
+        <Paper key="back" sx={{ height: 350 }}>
           <CardMedia
-            title=""
+            title="Woman exercising"
+            borderRadius="10px"
             component="img"
             height={300}
             image={require(`../../images/${props.img}`)}
@@ -36,7 +43,7 @@ function Class(props) {
             {props.name}
           </Typography>
         </Paper>
-      </ReactCardFlip>
+      </Grow>
     </Grid>
   );
 }

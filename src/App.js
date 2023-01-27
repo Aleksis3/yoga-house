@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
 import { Container } from "@mui/system";
+
 import "./App.css";
 import Classes from "./components/Classes/Classes";
 import Footer from "./components/Footer";
@@ -17,12 +18,21 @@ const theme = createTheme({
       main: "#f44336",
     },
   },
-  typography: {
-    htmlFontSize: "62.5%",
-    "@media (max-width:700px)": {
-      htmlFontSize: "40%",
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1100,
+      xl: 1536,
     },
   },
+  // typography: {
+  //   htmlFontSize: "10",
+  //   "@media (max-width:700px)": {
+  //     htmlFontSize: "4",
+  //   },
+  // },
 });
 
 function App() {
@@ -33,7 +43,7 @@ function App() {
       <Container maxWidth="xl">
         <Classes />
         <Reserve />
-        <Gallery />
+        {/* <Gallery /> */}
       </Container>
       <Footer />
     </div>

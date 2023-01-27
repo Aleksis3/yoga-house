@@ -22,8 +22,8 @@ export const coachesData = {
   josh: {
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, maxime ea? Commodi corrupti doloremque animi, saepe suscipit error necessitatibus beatae, aspernatur est sapiente debitis soluta dolore adipisci quis inventore neque.
     Doloribus cum dignissimos iusto eius. Deserunt labore obcaecati asperiores recusandae, eum amet nostrum dolor odit nulla ipsam. Eveniet cupiditate facere distinctio adipisci fuga. Culpa praesentium sed omnis, dignissimos unde tenetur.
-    Minima maxime ab reprehenderit amet nulla quis necessitatibus aliquam, ea repellendus possimus iste adipisci exercitationem ducimus odio! Excepturi fuga tempore recusandae! Debitis, et quis accusantium sunt delectus ut modi deleniti!
-    Illo repudiandae nam optio recusandae temporibus eius quisquam. Vero perferendis neque repellendus assumenda sunt non eligendi, nobis libero cum, maiores possimus rem commodi quod ea? Error laborum aspernatur est nisi.`,
+    Minima maxime ab reprehenderit!
+    `,
     photo: "coach3.jpg",
   },
 };

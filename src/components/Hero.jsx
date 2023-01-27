@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { Box, keyframes } from "@mui/system";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { Button, CardMedia } from "@mui/material";
@@ -19,29 +19,48 @@ const StyledBox = styled(
   },
 });
 
+const zoom = keyframes`
+
+    ${
+      "" /* 0%   { background-size: 100vw 100% ; }
+  50% { background-size: 20vw 100% fill; }
+  100% { background-size: 100% 100%; }   */
+    }
+
+ 
+
+   0% { transform: scale(1.2);}
+   50% {transform: scale(1.6);} 
+   100% {transform: scale(1.2);} 
+
+
+`;
+
 function Hero() {
   return (
     <>
       <Box
         sx={{
           position: "relative",
+          width: "100%",
+          height: "100vh",
           marginTop: "-3rem",
+          overflow: "hidden",
         }}
       >
-        <StyledBox>
-          <CardMedia
-            component={"img"}
-            sx={{
-              // height: "56rem",
-              height: "100vh",
-              width: "100%",
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(${background})`,
-              backgroundPosition: "20% 37%",
-              // objectFit: "cover",
-            }}
-            alt=""
-          />
-        </StyledBox>
+        <CardMedia
+          sx={{
+            // height: "56rem",
+            animation: `${zoom} 23s linear infinite`,
+            backfaceVisibility: "hidden",
+            height: "100%",
+            width: "100%",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(${background})`,
+            backgroundPosition: "20% 37%",
+          }}
+          alt=""
+        />
+
         <Box
           sx={{
             position: "absolute",

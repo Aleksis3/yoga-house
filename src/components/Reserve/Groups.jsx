@@ -14,7 +14,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Box } from "@mui/system";
 function Groups({ hide }) {
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative", padding: "1rem" }}>
       <ArrowBackIcon
         onClick={hide}
         sx={{

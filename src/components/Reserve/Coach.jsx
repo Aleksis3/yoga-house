@@ -1,10 +1,10 @@
-import { CardMedia, Grid, Typography } from "@mui/material";
-import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Box, CardMedia, Typography } from "@mui/material";
+
 import { coachesData } from "./coachesData";
 import React, { useEffect, useState } from "react";
-import { disableRandomDates, today } from "./calendarHelpers";
+
 import Groups from "./Groups";
+import Calendar from "./Calendar";
 function Coach({ coach }) {
   const [showGroups, setShowGroups] = useState(false);
 
@@ -13,52 +13,64 @@ function Coach({ coach }) {
   }, [coach]);
 
   return (
-    <Grid container justifyContent={"space-between"}>
-      <Grid item xs={3}>
-        <CardMedia
-          title="Coach Amanda"
-          sx={{ height: "30rem" }}
-          image={require(`../../images/${coachesData[coach].photo}`)}
-        />
-      </Grid>
-      <Grid item xs={6}>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignContent: "center",
+        justifyItems: "center",
+        alignItems: "center",
+        flexDirection: { md: "column", lg: "row" },
+      }}
+      justifyContent={"space-between"}
+    >
+      <CardMedia
+        title="Coach Amanda"
+        sx={{
+          height: "30rem",
+          width: "20rem",
+          margin: "0 auto",
+          borderRadius: "10px",
+        }}
+        image={require(`../../images/${coachesData[coach].photo}`)}
+      />
+
+      <Box>
         <Typography
           variant="h5"
           component={"h3"}
           color="initial"
           textAlign={"center"}
+          mt={"1rem"}
         >
           About me
         </Typography>
         <Typography
           variant="body1"
           color="initial"
-          width={"80%"}
-          m={"1rem 3rem"}
+          maxWidth={"600px"}
+          m={"1rem 3rem 2rem 3rem"}
         >
           {coachesData[coach].desc}
         </Typography>
-      </Grid>
-      <Grid
-        item
-        xs={3}
-        bg="#fff"
-        sx={{ backgroundColor: "#fff" }}
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: "#fff",
+          border: "1px #000 solid",
+          width: "350px",
+          maxWidth: "90%",
+        }}
         textAlign={"center"}
+        margin={"0 auto"}
       >
         {showGroups ? (
           <Groups hide={() => setShowGroups(false)} />
         ) : (
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <CalendarPicker
-              shouldDisableDate={disableRandomDates}
-              minDate={today}
-              onChange={() => setShowGroups(true)}
-            />
-          </LocalizationProvider>
+          <Calendar showGroups={() => setShowGroups(true)} />
         )}
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }
 

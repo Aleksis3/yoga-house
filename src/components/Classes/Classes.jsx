@@ -2,7 +2,6 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import Class from "./Class";
-import handleViewport from "react-in-viewport";
 
 function Classes() {
   const classes = [
