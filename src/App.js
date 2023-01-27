@@ -2,6 +2,8 @@ import { createTheme } from "@mui/material";
 import { Container } from "@mui/system";
 import "./App.css";
 import Classes from "./components/Classes/Classes";
+import Footer from "./components/Footer";
+import Gallery from "./components/Gallery";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Reserve from "./components/Reserve/Reserve";
@@ -31,7 +33,9 @@ function App() {
       <Container maxWidth="xl">
         <Classes />
         <Reserve />
+        <Gallery />
       </Container>
+      <Footer />
     </div>
   );
 }

@@ -30,6 +30,7 @@ function Hero() {
       >
         <StyledBox>
           <CardMedia
+            component={"img"}
             sx={{
               // height: "56rem",
               height: "100vh",

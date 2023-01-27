@@ -7,7 +7,7 @@ function Reserve() {
   const [coach, setCoach] = useState("amanda");
 
   return (
-    <>
+    <Box mb={"2rem"}>
       <Typography
         textAlign={"center"}
         variant="h3"
@@ -50,7 +50,7 @@ function Reserve() {
         </Button>
       </Box>
       <Coach coach={coach} />
-    </>
+    </Box>
   );
 }
 

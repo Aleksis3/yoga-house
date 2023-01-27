@@ -2,11 +2,16 @@ import { CardMedia, Grid, Typography } from "@mui/material";
 import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { coachesData } from "./coachesData";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { disableRandomDates, today } from "./calendarHelpers";
 import Groups from "./Groups";
 function Coach({ coach }) {
   const [showGroups, setShowGroups] = useState(false);
+
+  useEffect(() => {
+    setShowGroups(false);
+  }, [coach]);
+
   return (
     <Grid container justifyContent={"space-between"}>
       <Grid item xs={3}>
@@ -34,17 +39,25 @@ function Coach({ coach }) {
           {coachesData[coach].desc}
         </Typography>
       </Grid>
-      {showGroups ? (
-        <Groups />
-      ) : (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <CalendarPicker
-            shouldDisableDate={disableRandomDates}
-            minDate={today}
-            onChange={() => setShowGroups(true)}
-          />
-        </LocalizationProvider>
-      )}
+      <Grid
+        item
+        xs={3}
+        bg="#fff"
+        sx={{ backgroundColor: "#fff" }}
+        textAlign={"center"}
+      >
+        {showGroups ? (
+          <Groups hide={() => setShowGroups(false)} />
+        ) : (
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <CalendarPicker
+              shouldDisableDate={disableRandomDates}
+              minDate={today}
+              onChange={() => setShowGroups(true)}
+            />
+          </LocalizationProvider>
+        )}
+      </Grid>
     </Grid>
   );
 }
