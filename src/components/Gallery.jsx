@@ -14,43 +14,66 @@ function Gallery() {
       >
         Gallery
       </Typography>
-      <Grid container spacing={20}>
-        <Grid item xs={3}>
+      <Grid container spacing={{ xs: "5", md: "20" }}>
+        <Grid item xs={6} md={3}>
           <CardMedia
-            title=""
+            title="woman exercising"
+            component={"img"}
+            height={"100%"}
             image={require(`../images/gallery1.jpg`)}
-            sx={{ height: "350px" }}
+            sx={{
+              height: { sx: "250px", md: "350px" },
+            }}
           />
         </Grid>
-
-        <Grid item xs={6}>
+        <Grid item xs={6} md={6}>
           <CardMedia
-            title=""
+            title="woman exercising"
+            component={"img"}
+            height={"100%"}
             image={require(`../images/gallery6.jpg`)}
-            sx={{ height: "350px" }}
+            sx={{
+              height: { sx: "250px", md: "350px" },
+            }}
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <CardMedia
-            title=""
+            title="woman exercising"
+            component={"img"}
+            height={350}
             image={require(`../images/gallery2.jpg`)}
-            sx={{ height: "350px" }}
+            sx={{
+              margin: { xs: "1rem 0", md: "0" },
+            }}
           />
         </Grid>
       </Grid>
-      <Grid container spacing={2} mt={1.3} justifyContent={"space-around"}>
-        <Grid item xs={4}>
+      <Grid
+        container
+        spacing={{ xs: "5", md: "2" }}
+        justifyContent={"space-around"}
+      >
+        {" "}
+        <Grid item xs={6} md={4} mt={{ sm: "0", md: "2rem" }}>
           <CardMedia
-            title=""
+            title="woman exercising"
+            component={"img"}
+            sx={{
+              height: { sx: "250px", md: "350px" },
+            }}
             image={require(`../images/gallery5.jpg`)}
-            sx={{ height: "250px" }}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} md={4} mt={{ sm: "0", md: "2rem" }}>
           <CardMedia
-            title=""
+            title="woman exercising"
+            component={"img"}
+            height={"100%"}
+            sx={{
+              height: { sx: "250px", md: "350px" },
+            }}
             image={require(`../images/gallery3.jpg`)}
-            sx={{ height: "250px" }}
           />
         </Grid>
       </Grid>

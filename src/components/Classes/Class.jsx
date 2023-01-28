@@ -9,24 +9,20 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { useInViewport } from "react-in-viewport";
+import { useFirstRender } from "../../hooks/useFirstRender";
 
 function Class(props) {
   const myRef = useRef();
   const { inViewport } = useInViewport(myRef);
-  const flipCard = useRef(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
   // code to ensure card flips only once
+  const firstRender = useFirstRender();
   useEffect(() => {
-    if (flipCard.current) {
-      return;
-    }
-    if (inViewport === true) {
-      console.log("I run only once if toggle is false.");
-      flipCard.current = true;
+    if (inViewport === true && !firstRender) {
       setIsFlipped(true);
     }
-  }, [inViewport]);
+  }, [inViewport, firstRender]);
 
   return (
     <Grid item sm={12} md={4} sx={{ maxWidth: "400px" }} ref={myRef}>

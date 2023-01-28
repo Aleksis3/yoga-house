@@ -5,6 +5,7 @@ import { TextField } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import SendIcon from "@mui/icons-material/Send";
 
 function Footer() {
   return (
@@ -36,14 +37,25 @@ function Footer() {
           So do we. Sign up for our newsletter and we'll keep you in the loop on
           new promos and upcoming special events
         </Typography>
-        <TextField
-          id="standard-basic"
-          label="Standard"
-          variant="standard"
-          sx={{ backgroundColor: "#fff8e1", alignSelf: "auto" }}
-        />
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <TextField
+            id="standard-basic"
+            placeholder="name.surname@xoxo.com"
+            variant="outlined"
+            sx={{
+              backgroundColor: "#fff8e1",
+              width: "80%",
+            }}
+          />
+          <SendIcon color="primary" cursor="pointer" />
+        </Box>
       </Box>
-
       <Box
         sx={{
           display: "flex",
@@ -59,7 +71,6 @@ function Footer() {
             display: "flex",
             gap: "2rem",
             margin: { sm: 0, md: "3rem 3rem 0 0" },
-            alignItems: "center",
           }}
         >
           <InstagramIcon sx={{ cursor: "pointer" }} />

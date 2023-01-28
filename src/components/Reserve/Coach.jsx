@@ -1,19 +1,36 @@
-import { Box, CardMedia, Typography } from "@mui/material";
-
+import {
+  Box,
+  CardMedia,
+  FormControl,
+  Grow,
+  Slide,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { coachesData } from "./coachesData";
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import Groups from "./Groups";
 import Calendar from "./Calendar";
+import { useFirstRender } from "../../hooks/useFirstRender";
+import { useInViewport } from "react-in-viewport";
 function Coach({ coach }) {
   const [showGroups, setShowGroups] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  const firstRender = useFirstRender();
+  const myRef = useRef();
+  const { inViewport } = useInViewport(myRef);
 
   useEffect(() => {
+    if (!firstRender) {
+      setAnimate(true);
+    }
     setShowGroups(false);
-  }, [coach]);
+  }, [firstRender, coach]);
 
   return (
     <Box
+      key={coach}
       sx={{
         display: "flex",
         flexWrap: "wrap",
@@ -24,17 +41,18 @@ function Coach({ coach }) {
       }}
       justifyContent={"space-between"}
     >
-      <CardMedia
-        title="Coach Amanda"
-        sx={{
-          height: "30rem",
-          width: "20rem",
-          margin: "0 auto",
-          borderRadius: "10px",
-        }}
-        image={require(`../../images/${coachesData[coach].photo}`)}
-      />
-
+      <Slide direction={"right"} in={animate} timeout={700} ref={myRef}>
+        <CardMedia
+          title="Coach Amanda"
+          sx={{
+            height: "30rem",
+            width: "20rem",
+            margin: "0 auto",
+            borderRadius: "10px",
+          }}
+          image={require(`../../images/${coachesData[coach].photo}`)}
+        />
+      </Slide>
       <Box>
         <Typography
           variant="h5"

@@ -43,7 +43,7 @@ function App() {
       <Container maxWidth="xl">
         <Classes />
         <Reserve />
-        {/* <Gallery /> */}
+        <Gallery />
       </Container>
       <Footer />
     </div>
