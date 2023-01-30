@@ -7,7 +7,7 @@ function Reserve() {
   const [coach, setCoach] = useState("amanda");
 
   return (
-    <Box mb={"2rem"}>
+    <Box mb={"2rem"} id={"Reserve"} sx={{ scrollMarginTop: "6rem" }}>
       <Typography
         textAlign={"center"}
         variant="h3"

@@ -21,6 +21,8 @@ function Classes() {
         m="1rem 0 2rem 0"
         variant="h3"
         component={"h2"}
+        id="Classes"
+        sx={{ scrollMarginTop: "6rem" }}
       >
         Classes we offer
       </Typography>

@@ -1,10 +1,10 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Grid, CardMedia } from "@mui/material";
+import { Grid, CardMedia, Box } from "@mui/material";
 
 function Gallery() {
   return (
-    <div>
+    <Box id="Gallery" sx={{ scrollMarginTop: "6rem" }}>
       <Typography
         variant="h3"
         component={"h2"}
@@ -77,7 +77,7 @@ function Gallery() {
           />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 

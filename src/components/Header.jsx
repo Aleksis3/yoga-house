@@ -46,6 +46,7 @@ function Header() {
         color: "#fff",
         bgcolor: isSticky ? "secondary" : "transparent",
         zIndex: 100,
+        height: "5rem",
       }}
     >
       <Container maxWidth="xxl">
@@ -59,15 +60,15 @@ function Header() {
           />
           <Typography
             variant="h6"
+            noWrap
+            color="inherit"
             component="a"
             href="/"
             sx={{
               display: { xs: "none", md: "flex" },
               ml: "1rem",
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
               textDecoration: "none",
               fontSize: "1.3rem",
             }}
@@ -110,7 +111,16 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    textAlign="center"
+                    sx={{ textDecoration: "none", color: "secondary" }}
+                    component="a"
+                    variant="h5"
+                    href={`#${page}`}
+                    color="inherit"
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -120,13 +130,15 @@ function Header() {
             variant="h5"
             noWrap
             component="a"
+            href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontWeight: 700,
+              textDecoration: "none",
               letterSpacing: ".3rem",
-              cursor: "pointer",
+              color: "inherit",
             }}
           >
             Yoga House
@@ -149,8 +161,11 @@ function Header() {
                   display: "block",
                   fontSize: "1.3rem",
                 }}
+                href={`#${page}`}
               >
-                {page}
+                <Typography variant="h6" component="a">
+                  {page}
+                </Typography>
               </Button>
             ))}
           </Box>
