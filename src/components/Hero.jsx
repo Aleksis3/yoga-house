@@ -30,7 +30,7 @@ function Hero() {
             height: "100%",
             width: "100%",
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(${background})`,
-            backgroundPosition: "20% 37%",
+            backgroundPosition: { xs: "30% 50%", md: "20% 37%" },
           }}
           alt="woman relaxing on a yoga mat"
         />
