@@ -34,7 +34,9 @@ function Footer() {
           alignSelf: "center",
         }}
       >
-        <Typography variant="h4">Feel like staying in touch?</Typography>
+        <Typography variant="h4" component={"p"}>
+          Feel like staying in touch?
+        </Typography>
         <Typography variant="body1">
           So do we. Sign up for our newsletter and we'll keep you in the loop on
           new promos and upcoming special events
