@@ -1,6 +1,6 @@
+import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
 import { Container } from "@mui/system";
-
 import "./App.css";
 import Classes from "./components/Classes/Classes";
 import Footer from "./components/Footer";
@@ -12,11 +12,9 @@ import Reserve from "./components/Reserve/Reserve";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#2f2",
+      main: "#bf2aaa",
     },
-    secondary: {
-      main: "#f44336",
-    },
+    secondary: { main: "#6741d9" },
   },
   breakpoints: {
     values: {
@@ -37,16 +35,18 @@ const theme = createTheme({
 
 function App() {
   return (
-    <div className="App" theme={theme}>
-      <Header />
-      <Hero />
-      <Container maxWidth="xl">
-        <Classes />
-        <Reserve />
-        <Gallery />
-      </Container>
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header />
+        <Hero />
+        <Container maxWidth="xl">
+          <Classes />
+          <Reserve />
+          <Gallery />
+        </Container>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

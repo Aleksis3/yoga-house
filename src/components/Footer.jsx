@@ -19,7 +19,8 @@ function Footer() {
         color: "white",
         marginTop: "2rem",
         flexDirection: { xs: "column", md: "row" },
-        alignItems: { xs: "center" },
+        alignItems: "spaceBetween",
+        height: "100%",
       }}
     >
       <Box
@@ -30,6 +31,7 @@ function Footer() {
           width: "800px",
           maxWidth: "80%",
           margin: "1rem",
+          alignSelf: "center",
         }}
       >
         <Typography variant="h4">Feel like staying in touch?</Typography>
@@ -53,7 +55,7 @@ function Footer() {
               width: "80%",
             }}
           />
-          <SendIcon color="primary" cursor="pointer" />
+          <SendIcon cursor="pointer" color="secondary" />
         </Box>
       </Box>
       <Box
@@ -70,7 +72,7 @@ function Footer() {
           sx={{
             display: "flex",
             gap: "2rem",
-            margin: { sm: 0, md: "3rem 3rem 0 0" },
+            mt: "3rem",
           }}
         >
           <InstagramIcon sx={{ cursor: "pointer" }} />

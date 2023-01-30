@@ -26,7 +26,7 @@ function Reserve() {
       >
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{ width: "100%" }}
           onClick={() => setCoach("amanda")}
         >
@@ -34,7 +34,7 @@ function Reserve() {
         </Button>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{ width: "100%" }}
           onClick={() => setCoach("julia")}
         >
@@ -42,7 +42,7 @@ function Reserve() {
         </Button>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{ width: "100%" }}
           onClick={() => setCoach("josh")}
         >

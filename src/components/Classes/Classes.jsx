@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Class from "./Class";
 
 function Classes() {
@@ -24,9 +24,17 @@ function Classes() {
       >
         Classes we offer
       </Typography>
-      <Grid container spacing={5} justifyContent={"center"}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "2rem",
+          alignItems: "center",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+        justifyContent={"center"}
+      >
         {classesEl}
-      </Grid>
+      </Box>
     </>
   );
 }

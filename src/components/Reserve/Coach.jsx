@@ -1,12 +1,4 @@
-import {
-  Box,
-  CardMedia,
-  FormControl,
-  Grow,
-  Slide,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, CardMedia, Slide, Typography } from "@mui/material";
 import { coachesData } from "./coachesData";
 import React, { useEffect, useRef, useState } from "react";
 import Groups from "./Groups";
@@ -20,7 +12,6 @@ function Coach({ coach }) {
   const firstRender = useFirstRender();
   const myRef = useRef();
   const { inViewport } = useInViewport(myRef);
-
   useEffect(() => {
     if (!firstRender) {
       setAnimate(true);

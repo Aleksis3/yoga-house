@@ -64,7 +64,12 @@ function Groups({ hide }) {
             label="10PM Advanced"
           />
         </RadioGroup>
-        <Button sx={{ mt: "1rem" }} type="submit" variant="outlined">
+        <Button
+          sx={{ mt: "1rem" }}
+          type="submit"
+          variant="contained"
+          color="secondary"
+        >
           Book
         </Button>
       </FormControl>

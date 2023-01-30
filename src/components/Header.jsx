@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,13 +11,12 @@ import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Classes", "Reserve", "Gallery"];
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [isSticky, setIsSticky] = useState(false);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -26,13 +25,26 @@ function Header() {
     setAnchorElNav(null);
   };
 
+  // makes header sticky after 100vh
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <AppBar
-      position="fixed"
+      position={isSticky ? "sticky" : "relative"}
       elevation={0}
       sx={{
         color: "#fff",
-        bgcolor: "transparent",
+        bgcolor: isSticky ? "secondary" : "transparent",
         zIndex: 100,
       }}
     >
@@ -47,7 +59,6 @@ function Header() {
           />
           <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/"
             sx={{
@@ -72,7 +83,6 @@ function Header() {
           >
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -105,24 +115,21 @@ function Header() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <HomeIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              cursor: "pointer",
             }}
           >
-            LOGO
+            Yoga House
           </Typography>
           <Box
             sx={{

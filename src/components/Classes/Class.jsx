@@ -1,13 +1,5 @@
-import {
-  CardMedia,
-  Collapse,
-  Grid,
-  Grow,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, CardMedia, Grid, Grow, Paper, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import ReactCardFlip from "react-card-flip";
 import { useInViewport } from "react-in-viewport";
 import { useFirstRender } from "../../hooks/useFirstRender";
 
@@ -25,8 +17,8 @@ function Class(props) {
   }, [inViewport, firstRender]);
 
   return (
-    <Grid item sm={12} md={4} sx={{ maxWidth: "400px" }} ref={myRef}>
-      <Grow in={isFlipped} {...(isFlipped ? { timeout: 5000 } : {})}>
+    <Box sx={{ width: "400px", maxWidth: "90%" }} ref={myRef}>
+      <Grow in={isFlipped} {...(isFlipped ? { timeout: 3800 } : {})}>
         <Paper key="back" sx={{ height: 350 }}>
           <CardMedia
             title="Woman exercising"
@@ -35,12 +27,21 @@ function Class(props) {
             height={300}
             image={require(`../../images/${props.img}`)}
           />
-          <Typography variant="h4" component="h3" textAlign="center">
-            {props.name}
-          </Typography>
+          <Box
+            height={50}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h5" component="h3">
+              {props.name}
+            </Typography>
+          </Box>
         </Paper>
       </Grow>
-    </Grid>
+    </Box>
   );
 }
 
